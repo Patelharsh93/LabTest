@@ -10,7 +10,7 @@ var stats;
 var assets;
 var manifest = [
     { id: "rollButton", src: "assets/images/rollButton.png" },
-    { id: "one", src: "assets/images/One.png" },
+    { id: "One", src: "assets/images/One.png" },
     { id: "two", src: "assets/images/two.png" },
     { id: "three", src: "assets/images/three.png" },
     { id: "four", src: "assets/images/four.png" },
@@ -70,41 +70,41 @@ function gameLoop() {
 }
 //Call back function that allows me to respond to button clcik events
 function rollButtonClicked(event) {
-    var random1 = Math.floor((Math.random() * 6) + 1); //For dice1
-    var random2 = Math.floor((Math.random() * 6) + 1); //For dice2
-    updateDice(random1, random2);
+    random1 = Math.floor((Math.random() * 6) + 1); //For dice1
+    random2 = Math.floor((Math.random() * 6) + 1); //For dice2
+    newDice(random1, random2);
 }
-function updateDice(no1, no2) {
+function newDice(n1, n2) {
     //dice1 clear
     stage.removeChild(dice1);
     //dice2 clear
     stage.removeChild(dice2);
-    if (no1 == 1)
+    if (n1 == 1)
         dice1 = new createjs.Bitmap(assets.getResult("One"));
-    if (no1 == 2)
+    if (n1 == 2)
         dice1 = new createjs.Bitmap(assets.getResult("two"));
-    if (no1 == 3)
+    if (n1 == 3)
         dice1 = new createjs.Bitmap(assets.getResult("three"));
-    if (no1 == 4)
+    if (n1 == 4)
         dice1 = new createjs.Bitmap(assets.getResult("four"));
-    if (no1 == 5)
+    if (n1 == 5)
         dice1 = new createjs.Bitmap(assets.getResult("five"));
-    if (no1 == 6)
+    if (n1 == 6)
         dice1 = new createjs.Bitmap(assets.getResult("six"));
     dice1.x = 40;
     dice1.y = 80;
     stage.addChild(dice1);
-    if (no2 == 1)
+    if (n2 == 1)
         dice2 = new createjs.Bitmap(assets.getResult("One"));
-    if (no2 == 2)
+    if (n2 == 2)
         dice2 = new createjs.Bitmap(assets.getResult("two"));
-    if (no2 == 3)
+    if (n2 == 3)
         dice2 = new createjs.Bitmap(assets.getResult("three"));
-    if (no2 == 4)
+    if (n2 == 4)
         dice2 = new createjs.Bitmap(assets.getResult("four"));
-    if (no2 == 5)
+    if (n2 == 5)
         dice2 = new createjs.Bitmap(assets.getResult("five"));
-    if (no2 == 6)
+    if (n2 == 6)
         dice2 = new createjs.Bitmap(assets.getResult("six"));
     dice1.x = 40;
     dice1.y = 80;
@@ -125,22 +125,23 @@ function rollButtonOut() {
 //Our main function
 function main() {
     //add dice1
-    dice1 = new createjs.Bitmap(assets.getResult("one"));
+    dice1 = new createjs.Bitmap(assets.getResult("One"));
     dice1.x = 40;
     dice1.y = 80;
     stage.addChild(dice1);
     //add dice2
-    dice2 = new createjs.Bitmap(assets.getResult("three"));
+    dice2 = new createjs.Bitmap(assets.getResult("two"));
     dice2.x = 150;
     dice2.y = 80;
     stage.addChild(dice2);
-    r1 = new createjs.Text("" + random1, "20px Consolas", "#FFFFFF");
+    //add label
+    r1 = new createjs.Text("" + random1, "20px Consolas", "#D31515");
     r1.x = 80;
-    r1.y = 300;
+    r1.y = 200;
     stage.addChild(r1);
-    r2 = new createjs.Text("" + random2, "2px Consolas", "#FFFFFF");
+    r2 = new createjs.Text("" + random2, "20px Consolas", "#D31515");
     r2.x = 180;
-    r2.y = 300;
+    r2.y = 200;
     stage.addChild(r2);
     //add roll button 
     rollButton = new createjs.Bitmap(assets.getResult("rollButton"));
