@@ -79,6 +79,10 @@ function newDice(n1, n2) {
     stage.removeChild(dice1);
     //dice2 clear
     stage.removeChild(dice2);
+    //clearing r1 
+    stage.removeChild(r1);
+    //clearing r2
+    stage.removeChild(r2);
     if (n1 == 1)
         dice1 = new createjs.Bitmap(assets.getResult("One"));
     if (n1 == 2)
@@ -112,6 +116,15 @@ function newDice(n1, n2) {
     dice2.x = 150;
     dice2.y = 80;
     stage.addChild(dice2);
+    //add label
+    r1 = new createjs.Text("" + random1, "20px Consolas", "#D31515");
+    r1.x = 80;
+    r1.y = 200;
+    stage.addChild(r1);
+    r2 = new createjs.Text("" + random2, "20px Consolas", "#D31515");
+    r2.x = 180;
+    r2.y = 200;
+    stage.addChild(r2);
 }
 //Call back function that changes the alpha transparency of the button
 //Mouseover event
@@ -134,15 +147,6 @@ function main() {
     dice2.x = 150;
     dice2.y = 80;
     stage.addChild(dice2);
-    //add label
-    r1 = new createjs.Text("" + random1, "20px Consolas", "#D31515");
-    r1.x = 80;
-    r1.y = 200;
-    stage.addChild(r1);
-    r2 = new createjs.Text("" + random2, "20px Consolas", "#D31515");
-    r2.x = 180;
-    r2.y = 200;
-    stage.addChild(r2);
     //add roll button 
     rollButton = new createjs.Bitmap(assets.getResult("rollButton"));
     rollButton.regX = rollButton.getBounds().width * 0.5;
